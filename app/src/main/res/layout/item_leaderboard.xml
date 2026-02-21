@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/leaderboard_list_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <!-- Rank Number -->
+        <TextView
+            android:id="@+id/tvRank"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="04"
+            android:textSize="14sp"
+            android:textColor="@color/leaderboard_list_text"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- Profile Picture -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#B0BEC5">
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile_placeholder"
+                android:contentDescription="Profile"
+                app:tint="#FFFFFF"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:text="Nurul Isshah"
+            android:textSize="15sp"
+            android:textColor="@color/leaderboard_list_text"
+            android:textStyle="bold"/>
+
+        <!-- Weight -->
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15.3 KG"
+            android:textSize="14sp"
+            android:textColor="@color/leaderboard_list_text"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Top Bar -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:background="#CAEFD1"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="Back"
+                android:scaleType="centerInside"
+                app:tint="#000000"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Map"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+        <!-- Search Bar -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/map_search_field_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <EditText
+                    android:id="@+id/etSearchLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter location"
+                    android:textSize="14sp"
+                    android:textColor="@color/map_search_text"
+                    android:textColorHint="@color/map_hint_text"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"/>
+
+                <ImageButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search"
+                    android:scaleType="centerInside"
+                    app:tint="@color/map_search_icon"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:id="@+id/mapContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#E0E0E0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchCard"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Map View\n(Google Maps will be here)"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:gravity="center"
+                android:alpha="0.5"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/zoomControls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="240dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Zoom In -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/map_zoom_button_bg">
+
+                <ImageButton
+                    android:id="@+id/btnZoomIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_zoom_in"
+                    android:contentDescription="Zoom In"
+                    android:scaleType="centerInside"
+                    app:tint="@color/map_zoom_icon"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Zoom Out -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/map_zoom_button_bg">
+
+                <ImageButton
+                    android:id="@+id/btnZoomOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_zoom_out"
+                    android:contentDescription="Zoom Out"
+                    android:scaleType="centerInside"
+                    app:tint="@color/map_zoom_icon"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Pullable Bottom Sheet -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/map_bottom_sheet_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:behavior_peekHeight="500dp"
+        app:behavior_hideable="false">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Drag Handle -->
+                <View
+                    android:id="@+id/dragHandle"
+                    android:layout_width="40dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/map_drag_handle"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Location Name -->
+                <TextView
+                    android:id="@+id/tvLocationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GreenTech Recycling Center"
+                    android:textSize="20sp"
+                    android:textColor="@color/map_sheet_title"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Distance Info -->
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="21 min (15 km)"
+                    android:textSize="14sp"
+                    android:textColor="@color/map_sheet_subtitle"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- Navigate Button -->
+                    <Button
+                        android:id="@+id/btnNavigate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="12dp"
+                        android:text="Navigate"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:background="@drawable/navigate_button_background"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp"
+                        android:gravity="center"
+                        android:textAllCaps="false"
+                        app:backgroundTint="@null"/>
+
+                    <!-- Call Button -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/map_call_button_bg">
+
+                        <ImageButton
+                            android:id="@+id/btnCall"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackground"
+                            android:src="@drawable/ic_phone"
+                            android:contentDescription="Call"
+                            android:scaleType="centerInside"
+                            app:tint="@color/map_call_icon"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Address Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📍 Address"
+                        android:textSize="14sp"
+                        android:textColor="@color/accent_green"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jalan Teknologi 3/1, Kota Damansara, 47810 Petaling Jaya, Selangor"
+                        android:textSize="13sp"
+                        android:textColor="@color/map_sheet_body"
+                        android:lineSpacingExtra="2dp"/>
+
+                </LinearLayout>
+
+                <!-- Phone Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📞 Phone"
+                        android:textSize="14sp"
+                        android:textColor="@color/accent_green"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+60 12-345 6789"
+                        android:textSize="13sp"
+                        android:textColor="@color/map_sheet_body"/>
+
+                </LinearLayout>
+
+                <!-- Operating Hours Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🕒 Operating Hours"
+                        android:textSize="14sp"
+                        android:textColor="@color/accent_green"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvHours"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mon-Sat: 9:00 AM - 6:00 PM\nSunday: Closed"
+                        android:textSize="13sp"
+                        android:textColor="@color/map_sheet_body"
+                        android:lineSpacingExtra="2dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

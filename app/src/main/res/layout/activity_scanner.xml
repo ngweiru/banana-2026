@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#CAEFD1"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Close"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#000000"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="AI Scanner"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Camera Preview -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:id="@+id/scanningFrame"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/scanning_frame_border"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="top|start"
+                android:src="@drawable/ic_corner_top_left"
+                android:contentDescription="Top Left Corner"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="top|end"
+                android:src="@drawable/ic_corner_top_right"
+                android:contentDescription="Top Right Corner"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom|start"
+                android:src="@drawable/ic_corner_bottom_left"
+                android:contentDescription="Bottom Left Corner"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_corner_bottom_right"
+                android:contentDescription="Bottom Right Corner"/>
+
+        </FrameLayout>
+
+        <!-- Instruction Text -->
+        <TextView
+            android:id="@+id/tvInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="Position device within frame"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"
+            android:background="#80000000"/>
+
+        <!-- Loading Overlay -->
+        <FrameLayout
+            android:id="@+id/loadingOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC000000"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:indeterminateTint="#6FCF97"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Analyzing device..."
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="16dp"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- Bottom Control Panel -->
+    <LinearLayout
+        android:id="@+id/bottomControlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/scanner_bottom_panel"
+        android:padding="20dp">
+
+        <!-- Controls Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="12dp">
+
+            <!-- Gallery Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnGallery"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/scanner_button_bg"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_gallery"
+                    android:contentDescription="Gallery"
+                    app:tint="@color/scanner_icon_tint"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Capture Button -->
+            <ImageView
+                android:id="@+id/btnCapture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/ic_camera_capture"
+                android:contentDescription="Capture"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerInside"
+                android:foreground="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Flash Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnFlash"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/scanner_button_bg"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivFlashIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_flash_off"
+                    android:contentDescription="Flash"
+                    app:tint="@color/scanner_icon_tint"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Tip Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip: Ensure good lighting for better results"
+            android:textSize="12sp"
+            android:textColor="@color/scanner_tip_text"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

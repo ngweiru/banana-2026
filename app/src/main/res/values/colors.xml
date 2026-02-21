@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Global -->
+    <color name="background_primary">#CAEFD1</color>
+    <color name="background_secondary">#FFFFFF</color>
+    <color name="background_card">#49564B</color>
+    <color name="background_card_light">#A8C9B8</color>
+    <color name="background_dark">#000000</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_on_dark">#FFFFFF</color>
+    <color name="text_on_card">#FFFFFF</color>
+    <color name="accent_green">#6FCF97</color>
+    <color name="accent_green_dark">#5AB880</color>
+    <color name="card_settings">#1A1A1A</color>
+
+    <!-- Dashboard -->
+    <color name="dashboard_background">#FFFFFF</color>
+    <color name="icon_on_button">#000000</color>
+    <color name="scale_text_color">#000000</color>
+    <color name="card_subtitle_text">#CCCCCC</color>
+
+    <!-- Leaderboard -->
+    <color name="leaderboard_background">#FFFFFF</color>
+    <color name="leaderboard_list_card">#F5F5F5</color>
+    <color name="leaderboard_list_text">#000000</color>
+    <color name="leaderboard_first">#49564B</color>
+    <color name="leaderboard_second">#728676</color>
+    <color name="leaderboard_third">#B2D8B9</color>
+
+    <!-- Profile -->
+    <color name="profile_background">#FFFFFF</color>
+    <color name="profile_section_label">#000000</color>
+
+    <!-- Scanner -->
+    <color name="scanner_bottom_panel">#CAEFD1</color>
+    <color name="scanner_button_bg">#FFFFFF</color>
+    <color name="scanner_icon_tint">#000000</color>
+    <color name="scanner_tip_text">#4A5D4A</color>
+
+    <!-- Results -->
+    <color name="results_background">#FFFFFF</color>
+    <color name="results_card_bg">#F5F5F5</color>
+    <color name="results_section_label">#000000</color>
+    <color name="results_body_text">#333333</color>
+    <color name="results_subtext">#666666</color>
+    <color name="results_button_bg">#49564B</color>
+    <color name="results_button_text">#FFFFFF</color>
+    <color name="device_name_card_bg">#FFFFFF</color>
+    <color name="device_name_card_text">#000000</color>
+    <color name="recycling_guide_card_bg">#FFFFFF</color>
+
+    <!-- Map -->
+    <color name="map_search_field_bg">#F5F5F5</color>
+    <color name="map_search_text">#000000</color>
+    <color name="map_hint_text">#9E9E9E</color>
+    <color name="map_search_icon">#000000</color>
+    <color name="map_zoom_button_bg">#FFFFFF</color>       <!-- White bg in light -->
+    <color name="map_zoom_icon">#000000</color>           <!-- Black icon in light -->
+    <color name="map_bottom_sheet_bg">#FFFFFF</color>     <!-- WHITE sheet in light -->
+    <color name="map_drag_handle">#CCCCCC</color>
+    <color name="map_sheet_title">#000000</color>         <!-- Black title -->
+    <color name="map_sheet_subtitle">#666666</color>      <!-- Gray subtitle -->
+    <color name="map_sheet_body">#333333</color>          <!-- Dark body text -->
+    <color name="map_call_button_bg">#F0F0F0</color>      <!-- Light call button -->
+    <color name="map_call_icon">#000000</color>           <!-- Black call icon -->
+
+    <!-- Fixed -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#E0E0E0</color>
+    <color name="dark_gray">#1A1A1A</color>
+    <color name="gold">#FFD700</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="bronze">#CD7F32</color>
+    <color name="red_high">#D32F2F</color>
+    <color name="orange_moderate">#F57C00</color>
+    <color name="green_low">#388E3C</color>
+</resources>

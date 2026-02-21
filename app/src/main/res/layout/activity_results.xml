@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/results_background">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#CAEFD1"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="Back"
+            android:scaleType="centerInside"
+            app:tint="#000000"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Analysis Results"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+    </LinearLayout>
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Image Preview Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/results_card_bg"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/ivScannedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Scanned Item"
+                    android:background="#2D2D2D"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Device Name Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/device_name_card_bg"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvDeviceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Flat-screen TV"
+                    android:textSize="18sp"
+                    android:textColor="@color/device_name_card_text"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="16dp"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Model ID and Weight -->
+            <TextView
+                android:id="@+id/tvModelInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Model ID: Unknown | 15.0 kg"
+                android:textSize="13sp"
+                android:textColor="@color/results_subtext"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Recyclable Components -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recyclable Components"
+                android:textSize="15sp"
+                android:textColor="@color/results_section_label"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/results_card_bg"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvRecyclableComponents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Glass, Plastics, Printed Circuit Boards..."
+                    android:textSize="13sp"
+                    android:textColor="@color/results_body_text"
+                    android:padding="16dp"
+                    android:lineSpacingExtra="4dp"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Recycling Guide -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recycling Guide"
+                android:textSize="15sp"
+                android:textColor="@color/results_section_label"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/results_card_bg"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Hazardous Materials -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hazardous Materials"
+                        android:textSize="13sp"
+                        android:textColor="@color/results_body_text"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvHazardousMaterials"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lead, Mercury, Cadmium..."
+                        android:textSize="12sp"
+                        android:textColor="@color/results_body_text"
+                        android:lineSpacingExtra="3dp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Recommendations -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Recommendations"
+                        android:textSize="13sp"
+                        android:textColor="@color/results_body_text"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvRecommendations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Donate if functional\n2. Repurpose screen..."
+                        android:textSize="12sp"
+                        android:textColor="@color/results_body_text"
+                        android:lineSpacingExtra="3dp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Environmental Impact -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Environmental Impact: "
+                            android:textSize="12sp"
+                            android:textColor="@color/results_body_text"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tvImpact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High"
+                            android:textSize="12sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Find Location Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/results_button_bg"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:id="@+id/btnFindLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Find Nearest Recycling Center"
+                        android:textSize="14sp"
+                        android:textColor="@color/results_button_text"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        android:contentDescription="Arrow"
+                        app:tint="@color/results_button_text"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

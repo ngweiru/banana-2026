@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+
+    <!-- Outer ring (border) - always white so visible on camera -->
+    <path
+        android:pathData="M36,36 m-34,0 a34,34 0,1 1,68 0 a34,34 0,1 1,-68 0"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="0"/>
+
+    <!-- Gap (dark ring between outer border and inner circle) -->
+    <path
+        android:pathData="M36,36 m-30,0 a30,30 0,1 1,60 0 a30,30 0,1 1,-60 0"
+        android:fillColor="#000000"/>
+
+    <!-- Inner filled white circle -->
+    <path
+        android:pathData="M36,36 m-24,0 a24,24 0,1 1,48 0 a24,24 0,1 1,-48 0"
+        android:fillColor="#FFFFFF"/>
+
+</vector>
