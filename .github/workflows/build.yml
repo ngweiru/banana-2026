@@ -22,6 +22,11 @@ jobs:
       with:
         channel: 'stable'
 
+    - name: Generate Flutter Android Module
+      run: |
+        cd my_map_module
+        flutter pub get
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
