@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import io.flutter.embedding.android.FlutterActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -43,12 +44,8 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
-
-        initializeViews();
-        setupBottomSheet();
-        displayLocationData();
-        setupClickListeners();
+        startActivity(FlutterActivity.createDefaultIntent(this));
+        finish();
     }
 
     private void initializeViews() {

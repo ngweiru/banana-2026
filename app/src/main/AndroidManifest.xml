@@ -57,6 +57,13 @@
             android:screenOrientation="portrait" />
 
         <!-- Example Instrumented Test Activity (Keep this if it exists) -->
+        
+        <activity
+            android:name="io.flutter.embedding.android.FlutterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 
