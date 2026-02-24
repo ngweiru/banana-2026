@@ -299,6 +299,9 @@ public class ScannerActivity extends BaseActivity {
 
                 try {
                     String jsonText = result.getText();
+                    if(jsonText != null){
+                        jsonText = jsonText.replace("json", "").replace("","").trim();
+                    }
                     JSONObject root = new JSONObject(jsonText);
                     JSONArray items = root.getJSONArray("ewaste");
                     JSONObject item = items.getJSONObject(0);
@@ -313,8 +316,13 @@ public class ScannerActivity extends BaseActivity {
                     String impactLevel = item.getString("impact");
 
                     // Compress bitmap
+                    //ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    //bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+                    int targetWidth = 500;
+                    int targetHeight = (int)(targetWidth*((float)bitmap.getHeight()/bitmap.getWidth()));
+                    Bitmap thumbnail = Bitmap.createScaledBitmap(bitmap,targetWidth,targetHeight,true);
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG,60,stream);
                     byte[] byteArray = stream.toByteArray();
 
                     // Navigate to ResultsActivity

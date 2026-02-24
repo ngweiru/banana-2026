@@ -5,7 +5,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 import 'dart:ui' as ui;
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -412,8 +411,9 @@ class _MapScreenState extends State<MapScreen> {
     setState(() {
       _selectedFilter = filter;
       List<Map<String, dynamic>> temp = List.from(_allStations);
-      if (filter == '24 Hours') temp = temp.where((s) => s['hours'] == '24 Hours').toList();
-      else if (filter == '🟢 Low Traffic') temp = temp.where((s) => s['busy'].contains('Low')).toList();
+      if (filter == '24 Hours') {
+        temp = temp.where((s) => s['hours'] == '24 Hours').toList();
+      } else if (filter == '🟢 Low Traffic') temp = temp.where((s) => s['busy'].contains('Low')).toList();
       else if (filter == '< 10km') temp = temp.where((s) => (s['distance'] as double) < 10.0).toList();
       
       temp.sort((a, b) => (a["distance"] as double).compareTo(b["distance"] as double));

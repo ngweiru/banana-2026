@@ -1,10 +1,15 @@
 package com.example.ewasteapp;
-
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardActivity extends BaseActivity {
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 101;
 
     private RecyclerView recyclerViewHistory;
     private RecycleHistoryAdapter adapter;
@@ -75,10 +82,44 @@ public class DashboardActivity extends BaseActivity {
         btnFindLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, MapActivity.class);
-                startActivity(intent);
+                if (checkLocationPermission()) {
+                    openMap();
+                } else {
+                    requestLocationPermission();
+                }
             }
         });
+    }
+
+    private boolean checkLocationPermission() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestLocationPermission() {
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                LOCATION_PERMISSION_REQUEST_CODE);
+    } 
+
+    private void openMap() {
+        startActivity(
+            io.flutter.embedding.android.FlutterActivity.createDefaultIntent(DashboardActivity.this)
+        );
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //allow
+                openMap();
+            } else {
+                // ！allow
+                Toast.makeText(this, "Location permission is required to find stations", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void setupBottomNavigation() {

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+//add
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     TextView reuseRec;
     TextView impact;
 
-    TextView ImageResultText;
+   // TextView ImageResultText;
     Button uploadButton;
     ImageView IVPreviewImage;
     int SELECT_PICTURE = 200;
@@ -206,11 +208,15 @@ public class MainActivity extends AppCompatActivity {
 
                             }catch(Exception e){
                                 e.printStackTrace();
+                                //add
+                                itemName.setText("JSON Parse Error: " + e.getMessage());
                             }
                         }
                         @Override
                         public void onFailure(Throwable t){
-                            ImageResultText.setText("Error: " + t.getMessage());
+
+                            itemName.setText("Error: " + t.getMessage());
+                            Toast.makeText(MainActivity.this, "AI Request Failed", Toast.LENGTH_LONG).show();
                         }
                     }, executor);
                 }
