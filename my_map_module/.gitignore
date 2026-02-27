@@ -48,3 +48,4 @@ app.*.symbols
 app.*.map.json
 
 local.properties
+.gradle/
