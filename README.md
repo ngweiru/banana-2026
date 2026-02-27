@@ -48,11 +48,11 @@ graph TD
 * **Location Services (Google Maps Platform API):** Provides interactive map visualization, real-time routing, and facility details (address, operating hours) to eliminate logistical friction.
 * **Analytics & Cloud:** Designed to integrate with Firebase Firestore and Google Analytics to track user behavior and classification success rates.
 
-## 🧗‍♂️ Overcoming Technical Challenges
+##  Overcoming Technical Challenges
 **The Challenge:** Handling irregular and unstructured AI outputs from Gemini. The formatting of recycling instructions differed between scans, making frontend parsing complex and unstable.
 **The Solution:** We initially tried regex patterns and forcing JSON outputs, but faced AI hallucinations and malformed strings. To solve this, we developed a **Cascading Multi-Strategy Parsing System**. This four-tier intelligent parser automatically recognizes the output format type and normalizes all results into a uniform numbered list, achieving 100% formatting consistency regardless of AI output variations.
 
-## 🚀 Scalability & Future Roadmap
+##  Scalability & Future Roadmap
 * **Phase 1 (0-6 Months) - Campus Gamification:** Launch "E-waste Campus Drives" across Malaysian universities. Transition to full Firebase Realtime Database for inter-faculty leaderboard syncing to acquire the first 10,000 active users.
 * **Phase 2 (6-12 Months) - API-Driven Microservices:** Partner with brands (Grab, Tealive) to convert eco-points into real-world vouchers. Integrate 3rd-party logistics APIs (like ERTH) via Firebase Cloud Functions for doorstep pick-up of bulky items.
 * **Phase 3 (12+ Months) - Smart City Infrastructure:** Deploy ChipRevive IoT Smart Bins in public spaces with hardware webhooks. Utilize **Google BigQuery** to aggregate anonymized scanning data, generating real-time "E-waste Heatmaps" for B2G municipal council planning.
