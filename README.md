@@ -39,7 +39,8 @@ graph TD
     User(( User)) -->|1. Takes Photo| Native[ Native Android Camera]
     User -->|2. Opens Map| Flutter[ Flutter Map Module]
     
-    subgraph Frontend Hybrid Architecture
+    subgraph Frontend Hybrid 
+
         Native
         Flutter
     end
