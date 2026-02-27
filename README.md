@@ -36,19 +36,19 @@ Our solution employs a highly decoupled, modular architecture maximizing Google 
 
 ```mermaid
 graph TD
-    User((User)) -->|Takes Photo / Opens Map| App
-    
-    subgraph Frontend
-        App[Native Android + Flutter]
+    User((User)) -->|1. Takes Photo| Native[Native Android Camera] 
+    User -->|2. Open Map| Flutter [Flutter Map Module]
+    subgraph Frontend Hybrid Architecture
+        Native
+        Flutter
     end
 
-    subgraph Google Cloud
-        App -->|1. Sends Image| FirebaseAI[Firebase AI Logic]
+    subgraph Google Cloud & Service
+        Native -->|1. Sends Image| FirebaseAI[Firebase AI Logic]
         FirebaseAI <-->|2. Analyzes Data| Gemini{Gemini 2.5 Flash}
-        FirebaseAI -->|3. Returns JSON| App
+        FirebaseAI -->|3. Returns Result| Native
         
-        App -->|4. Requests Location| Maps[Google Maps API]
-        Maps -->|5. Returns Nearby Bins| App
+       Flutter -->|Requests Location| Maps[📍 Google Maps API]
     end
     
     
