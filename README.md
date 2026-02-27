@@ -51,9 +51,7 @@ graph TD
         Maps -->|5. Returns Nearby Bins| App
     end
     
-    subgraph Database
-        App -->|6. Syncs Eco-Points| DB[(Firebase Database)]
-    end
+    
 ```
 
 
