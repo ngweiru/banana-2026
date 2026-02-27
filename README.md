@@ -20,25 +20,25 @@ Aligned with **SDG 12: Responsible Consumption and Production (Target 12.5)**, C
 ##  Technical Architecture & Google Technologies
 Our solution employs a highly decoupled, modular architecture maximizing Google Developer Technologies for scalability and performance. 
 
-```
+```mermaid
 graph TD
-    User((🧑‍💻 User)) -->|Takes Photo / Opens Map| App
+    User((User)) -->|Takes Photo / Opens Map| App
     
     subgraph Frontend
-        App[📱 Native Android + Flutter]
+        App[Native Android + Flutter]
     end
 
-    subgraph Google Cloud & Services
-        App -->|1. Sends Image| FirebaseAI[🔥 Firebase AI Logic]
-        FirebaseAI <-->|2. Analyzes Data| Gemini{🧠 Gemini 2.5 Flash}
-        FirebaseAI -->|3. Returns JSON/Text| App
+    subgraph Google Cloud
+        App -->|1. Sends Image| FirebaseAI[Firebase AI Logic]
+        FirebaseAI <-->|2. Analyzes Data| Gemini{Gemini 2.5 Flash}
+        FirebaseAI -->|3. Returns JSON| App
         
-        App -->|4. Requests Location| Maps[🗺️ Google Maps API]
+        App -->|4. Requests Location| Maps[Google Maps API]
         Maps -->|5. Returns Nearby Bins| App
     end
     
     subgraph Database
-        App -->|6. Syncs Eco-Points| DB[(🗄️ Firebase Database)]
+        App -->|6. Syncs Eco-Points| DB[(Firebase Database)]
     end
 ```
 
