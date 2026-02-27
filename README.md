@@ -3,13 +3,13 @@
 > **Empowering consumers to identify, upcycle, and responsibly recycle electronic waste through AI and Gamification.**
 
 ##  The Problem
-The world generated a record 62 million tonnes of e-waste in 2022, yet only 22.3% was properly recycled.  The root cause? **A massive consumer knowledge gap.** People don't know how to assess the reusability of old devices or safely extract valuable parts. Fearing data breaches or lacking technical expertise, functional electronics are hoarded in drawers until they degrade, ultimately ending up in landfills and squandering $62 billion in recoverable resources annually.
+Our project addresses the escalating global electronic waste (e-waste) crisis, specifically focusing on the **premature disposal of functional electronic components.** The world generated a record 62 million tonnes of e-waste in 2022, yet only 22.3% was properly recycled.  The root cause? **A massive consumer knowledge gap.** People don't know how to assess the reusability of old devices or safely extract valuable parts. Fearing data breaches or lacking technical expertise, functional electronics are hoarded in drawers until they degrade, ultimately ending up in landfills and squandering $62 billion in recoverable resources annually.
 
 ##  Our Solution
 **ChipRevive** is a user-friendly, AI-powered mobile application built entirely on the Google Technology Stack. It tackles the consumer knowledge barrier directly by making e-waste evaluation effortless. With a simple photo, our AI instantly identifies reusable components, provides step-by-step upcycling/recycling guidance, and seamlessly navigates users to verified drop-off locations.
 
 ###  SDG Alignment
-Aligned with **SDG 12: Responsible Consumption and Production (Target 12.5)**, ChipRevive shifts public behavior from hoarding and dumping to actively rescuing functional parts, cultivating a sustainable circular economy.
+Aligned with **SDG 12: Responsible Consumption and Production (Target 12.5: Substantially Reduce Waste Generation)**, ChipRevive is dedicated to addressing the e-waste crisis at its root. We aim to educate the public on the responsible disposal of unwanted electronic devices, shifting behavior from hoarding and dumping to actively rescuing functional parts. Through this, we cultivate a sustainable circular economy.
 
 ---
 
