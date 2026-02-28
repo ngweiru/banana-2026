@@ -7,9 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      API_KEY: ${{secrets.API_KEY}}
 
     steps:
     - uses: actions/checkout@v4
+    
+    - name: Create local.properties
+      run: |
+        echo "API_KEY=${API_KEY}" >>local.properties
 
     - name: Set up Java 17
       uses: actions/setup-java@v4
@@ -38,3 +44,4 @@ jobs:
       with:
         name: eWasteApp-Debug-APK
         path: app/build/outputs/apk/debug/app-debug.apk
+    
