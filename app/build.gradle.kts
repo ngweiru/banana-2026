@@ -17,7 +17,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-        manifestPlaceholder = [API_KEY: apiKey]
+        val apiKey: String = project.properties["API_KEY"] as? String ?: ""
+
+        manifestPlaceholders["API_KEY"] = apiKey
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
