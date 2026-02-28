@@ -76,12 +76,23 @@ graph TD
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/ngweiru/banana-map-app.git](https://github.com/ngweiru/banana-map-app.git)
+   git clone https://github.com/ngweiru/banana-map-app.git
+   
+2. Install dependencies
+   `flutter pub get `
 
-2. Open the project in Android Studio.
-
-3. Sync Gradle and ensure the required Google SDKs are downloaded.
-
-4. Add your `local.properties` or required API keys (Google Maps, Firebase configuration) as per the setup guidelines.
-
-5. Build and Run the app on an emulator or physical Android device.
+3. Configure Google Maps API Key
+   1. Create a Google Maps API key in Google Cloud Console.
+   2. Enable Maps SDK for Android.
+   3. Restrict the key to Android apps.
+   4. Add your SHA1 and package name.
+   5. In android/local.properties add: `MAPS_API_KEY=YOUR_API_KEY`
+      
+4. Run the app in Android Studio:
+   1. Open Android Studio.
+   2. Select File > Open and choose the android folder of this project (or the root folder,
+      depending on your hybrid structure).
+   3. Wait for Gradle Sync to complete and ensure all Google SDKs are downloaded.
+   4. Select an emulator or connected physical device, and click the ▶️ Run button
+      (or run `./gradlew assembleDebug in the terminal`).
+   
