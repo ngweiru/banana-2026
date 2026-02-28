@@ -288,7 +288,7 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(color: Colors.grey[800], borderRadius: BorderRadius.circular(12)),
                     child: IconButton(
                       onPressed: () async {
-                        final String phoneNumber = station['phone']; // 获取你生成的假号码
+                        final String phoneNumber = station['phone']; 
                         final Uri launchUri = Uri(scheme: 'tel', path: phoneNumber);
                         
                         if (await canLaunchUrl(launchUri)) {
@@ -305,7 +305,7 @@ class _MapScreenState extends State<MapScreen> {
               ),
               const SizedBox(height: 25),
 
-              // 信息列表
+              
               _buildInfoRow(label: "Address", value: station['address'], icon: Icons.location_on),
               _buildInfoRow(label: "Phone", value: station['phone'], icon: Icons.phone),
               _buildInfoRow(label: "Operating Hours", value: station['hours'], icon: Icons.access_time_filled),
@@ -467,7 +467,7 @@ class _MapScreenState extends State<MapScreen> {
         children: [
           GoogleMap(
 
-            padding: const EdgeInsets.only(top: 80.0, bottom: 100.0), // 把系统图标往中间推
+            padding: const EdgeInsets.only(top: 80.0, bottom: 100.0), 
             zoomControlsEnabled: false,
 
             onMapCreated: (controller) {

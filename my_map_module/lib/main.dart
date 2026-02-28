@@ -435,7 +435,7 @@ class _MapScreenState extends State<MapScreen> {
                     child: IconButton(
                       onPressed: () async {
                         final String phoneNumber =
-                            station['phone']; // 获取你生成的假号码
+                            station['phone']; 
                         final Uri launchUri = Uri(
                           scheme: 'tel',
                           path: phoneNumber,
@@ -455,7 +455,7 @@ class _MapScreenState extends State<MapScreen> {
               ),
               const SizedBox(height: 25),
 
-              // 信息列表
+              
               _buildInfoRow(
                 label: "Address",
                 value: station['address'],
@@ -667,7 +667,7 @@ class _MapScreenState extends State<MapScreen> {
             padding: const EdgeInsets.only(
               top: 80.0,
               bottom: 100.0,
-            ), // 把系统图标往中间推
+            ), 
             zoomControlsEnabled: false,
 
             onMapCreated: (controller) {
